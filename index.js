@@ -1,36 +1,29 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
+
 const app = express();
+const upload = multer({ dest: 'uploads/' }); // Dossier temporaire
 
-// Configuration de Multer
-const upload = multer({ dest: 'uploads/' });
-
-// Middleware pour servir les fichiers statiques
+// Servir les fichiers statiques
 app.use(express.static('public'));
 
-// Utilisation de EJS si tu veux des vues dynamiques (optionnel)
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-// Route pour afficher la page d'accueil
+// Page HTML du formulaire
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views/index.html')); // Si tu utilises HTML simple
-  // res.render('index'); // Si tu utilises EJS
+  res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
-// Route pour gérer l'upload
+// Route de soumission du formulaire
 app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
   if (!req.file) {
     return res.status(400).json({ error: 'Aucun fichier téléchargé' });
   }
 
-  const { originalname, mimetype, size } = req.file;
-
+  // Réponse JSON exactement comme demandé
   res.json({
-    name: originalname,
-    type: mimetype,
-    size: size
+    name: req.file.originalname,
+    type: req.file.mimetype,
+    size: req.file.size
   });
 });
 

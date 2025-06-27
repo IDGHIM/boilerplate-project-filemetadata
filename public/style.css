@@ -1,42 +1,86 @@
-/****** Main Styling ******/
-
+/* Structure générale */
 body {
   font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  color: #222;
-  background-color: #ECF0F1;
-  text-align: center;
-}
-
-.container {
+  background-color: #f0f4f8;
+  color: #333;
+  margin: 0;
   padding: 0;
-  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.footer {
-  margin-top: 60px;
-}
-
-a {
-  color: #2574A9;
-}
-
-input {
-  display: block;
-  position: relative;
-  margin: 10px auto;
-}
-
-input#button {
-  width: 230px;
-}
-
-.view {
-  position:relative;
+/* Conteneur principal */
+.container {
+  max-width: 600px;
   margin: auto;
-  margin-top: 40px;
-  border: 1px  solid  #aaa;
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 80px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Titres */
+h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+h4 {
+  color: #16a085;
+  margin-bottom: 20px;
+}
+
+/* Texte explicatif */
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Bloc view */
+.view {
+  margin-top: 20px;
+}
+
+/* Champs de fichier */
+input[type="file"] {
+  margin-bottom: 20px;
+}
+
+/* Bouton upload */
+input[type="submit"] {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+/* Pied de page */
+.footer {
+  text-align: center;
+  margin-top: auto;
   padding: 20px;
-  width: 60%;
-  min-width: 400px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
