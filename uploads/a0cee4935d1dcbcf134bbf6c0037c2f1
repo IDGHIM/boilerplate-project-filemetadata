@@ -1,0 +1,21 @@
+^ et $ :
+  ^ : Indique le début de la ligne.
+  $ : Indique la fin de la ligne.
+signifie que l'intégralité de la chaîne doit correspondre au modèle.
+
+500|\+)? :
+   (00|\+)? : Optionnel. Accepte soit 00 (indicatif international), soit + (pour les appels internationaux).
+   1? : Optionnel. Le 1 représente le code du pays pour l'Amérique du Nord (États-Unis, Canada, etc.).
+   ? : Un espace optionnel après le code du pays.
+
+   (\(\d{3}\)|\d{3}):
+Soit une zone (région) avec des parenthèses (\d{3}) (comme (123)), soit trois chiffres consécutifs \d{3}.
+   ([ .-])? : Un séparateur optionnel qui peut être un espace ( ), un point (.) ou un tiret (-).
+   \d{3} : Trois chiffres représentant le préfixe (comme 456).
+   ([ .-])? : Encore un séparateur optionnel.
+   \d{4} : Quatre chiffres représentant la partie principale du numéro (comme 7890).
+
+   ( ext\.?\d+| x\d+)? : 
+Une extension optionnelle :
+    ext\.?\d+ : L'extension peut être écrite comme ext123 ou ext.123.
+    x\d+ : Ou simplement x123.

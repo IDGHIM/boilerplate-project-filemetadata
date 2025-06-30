@@ -1,13 +1,14 @@
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
-
+const cors = require('cors');
 const app = express();
-const upload = multer({ dest: 'uploads/' }); // Dossier temporaire
+require("dotenv").config();
+const upload = multer({ storage: multer.memoryStorage() }); 
 
 // Servir les fichiers statiques
 app.use(express.static('public'));
-
+app.use(cors());
 // Page HTML du formulaire
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'views/index.html'));
@@ -15,8 +16,10 @@ app.get('/', (req, res) => {
 
 // Route de soumission du formulaire
 app.post('/api/fileanalyse', upload.single('upfile'), (req, res) => {
+  console.log('ok');
   if (!req.file) {
     return res.status(400).json({ error: 'Aucun fichier téléchargé' });
+    
   }
 
   // Réponse JSON exactement comme demandé
