@@ -19,8 +19,8 @@ The goal of this project is to build a **File Metadata Microservice** as part of
 
 - [x] You should provide your own project, not the example URL.
 - [x] You can submit a form that includes a file upload.
-- [x] The form file input field has the name attribute set to upfile.
-- [x] When you submit a file, you receive the file name, type, and size in bytes within the JSON response.
+- [x] The form `file` input field has the name attribute set to upfile.
+- [x] When you submit a file, you receive the file `name`, `type`, and `size` in bytes within the JSON response.
 
 > ⚠️ **Important**: Be sure to include this line in your HTML to link your **CSS** & **JS** file:  
 > `<link rel="stylesheet" href="styles.css">`
